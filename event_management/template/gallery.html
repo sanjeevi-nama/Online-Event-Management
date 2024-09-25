@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'navbar.html'%}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Gallery</title>{% endblock %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://cdn.wallpapersafari.com/49/28/PlbUCQ.jpg");
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1,h3 {
+            text-align: center;
+            color: #333;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer; 
+        }
+        .gallery-item img {
+            width: 300px;
+            height: 250px;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .gallery-caption h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .gallery-caption p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+        .event-details {
+            display: none; 
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .event-images {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .event-images img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gallery</h1>
+        <h3>Welcome to our event gallery showcasing some of our memorable events! From weddings to corporate gatherings, we've curated a collection of our best work to inspire your next event.</h3>
+        <div class="gallery">
+            <div class="gallery-item" onclick="showEventDetails('Event 1', 'Weddings', 'Crafting unforgettable wedding experiences is our expertise. From the sophistication of Indo-Western blends to the allure of destination settings, we bring elegance to every celebration.', ['https://content.jdmagicbox.com/comp/ahmedabad/e5/079pxx79.xx79.121031110024.s1e5/catalogue/marriage-event-management-ellis-bridge-ahmedabad-event-management-companies-o2hy6.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpn6T-W-mLfDDMNuvze4bR0spbnsRbPx8ibGfxPHqt_WmkSdNToCEyWicLyjbKAy31pnk&usqp=CAU', 'https://i.pinimg.com/originals/73/a7/29/73a7292ccd89ef7bba2992a92c5cf03b.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAmVcbThxWh_tzcGMCRxqp5WhXwvPB_X6gM_ws_2wAUUmoaq2E'])">
+                <img src="https://content.jdmagicbox.com/comp/ahmedabad/e5/079pxx79.xx79.121031110024.s1e5/catalogue/marriage-event-management-ellis-bridge-ahmedabad-event-management-companies-o2hy6.jpg" alt="Event 1">
+                <div class="gallery-caption">
+                    <h2>Event 1</h2>
+                    <p>Weddings</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="showEventDetails('Event 2', 'Conferences', 'For seminars, we excel in orchestrating professional gatherings with a touch of distinction. From nationally recognized forums to globally impactful conferences, we ensure excellence in every event.', ['https://agcdn-1d97e.kxcdn.com/wp-content/uploads/2017/02/alphagamma-top-10-business-conferences-for-entrepreneurs-opportunities-1021x580.jpg', 'https://www.cio.com/wp-content/uploads/2024/03/shutterstock_2347235209-1.jpg?quality=50&strip=all', 'https://www.conference-board.org/images/products/conferences/Conferences-1200x627.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLvX1jiQ3DT7iYAFxVXDHLTrHudZrclXMBnXmBH6uhBEFIogcM'])">
+                <img src="https://agcdn-1d97e.kxcdn.com/wp-content/uploads/2017/02/alphagamma-top-10-business-conferences-for-entrepreneurs-opportunities-1021x580.jpg" alt="Event 2">
+                <div class="gallery-caption">
+                    <h2>Event 2</h2>
+                    <p>Conferences</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="showEventDetails('Event 3', 'Art & Craft Exibits', 'We curate immersive showcases that celebrate creativity in its diverse forms. From intricate local masterpieces to globally inspired creations, our exhibitions spark inspiration and appreciation.', ['https://ilead.net.in/wp-content/uploads/2023/03/Art-and-Craft-Exhibition-at-iLEAD_art_and_craft_exhibition5.jpg', 'https://ilead.net.in/wp-content/uploads/2023/03/Art-and-Craft-Exhibition-at-iLEAD_art_and_craft_exhibition19.jpg', 'https://cdn.prod.mktg.evvnt.com/uploads/event_image/2127156/event_image/hero_Print_for_publicity__9_.webp', 'https://www.gopalanschool.com/national/images/gallery/art-and-craft-exhibition-2020/013.jpg'])">
+                <img src="https://ilead.net.in/wp-content/uploads/2023/03/Art-and-Craft-Exhibition-at-iLEAD_art_and_craft_exhibition5.jpg" alt="Event 3">
+                <div class="gallery-caption">
+                    <h2>Event 3</h2>
+                    <p>Art & Craft Exibits</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="showEventDetails('Event 4', 'Birthdays', 'For birthdays, we specialize in crafting joyous celebrations filled with personalized touches. From intimate gatherings to extravagant parties, we create unforgettable moments tailored to each individual with their unique style and preferences.', ['https://5.imimg.com/data5/SELLER/Default/2023/8/338493451/FC/YF/HP/47694279/birthday-decoration-on-terrace.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlK6FfXSPyMtqq7fDyJLXCNH-d3kUxvlJQoATKyJYxBaprtKEL', 'https://3.imimg.com/data3/GF/TD/MY-9038392/images-service2-500x500.jpg', 'https://www.birthdayorganizers.com/images/blog/party-planners-in-kolkata.jpg'])">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/338493451/FC/YF/HP/47694279/birthday-decoration-on-terrace.jpg" alt="Event 4">
+                <div class="gallery-caption">
+                    <h2>Event 4</h2>
+                    <p>Birthdays</p>
+                </div>
+            </div>
+        </div>
+        <div class="event-details" id="eventDetails">
+            <h2 id="eventName"></h2>
+            <p><strong>Event Type:</strong> <span id="eventType"></span></p>
+            <p><strong>Description:</strong> <span id="eventDescription"></span></p>
+            <p><strong>Images:</strong></p>
+            <div class="event-images" id="eventImages"></div>
+        </div>
+    </div>
+
+    <script>
+        function showEventDetails(name, type, description, images) {
+            var eventDetails = document.getElementById('eventDetails');
+            var eventName = document.getElementById('eventName');
+            var eventType = document.getElementById('eventType');
+            var eventDescription = document.getElementById('eventDescription');
+            var eventImages = document.getElementById('eventImages');
+
+            if (eventDetails.style.display === 'block' && eventName.innerText === name) {
+                eventDetails.style.display = 'none';
+                return;
+            }
+
+            eventName.innerText = name;
+            eventType.innerText = type;
+            eventDescription.innerText = description;
+
+            var imagesHtml = '';
+            images.forEach(function(image) {
+                imagesHtml += '<img src="' + image + '" alt="' + name + '">';
+            });
+            eventImages.innerHTML = imagesHtml;
+
+            eventDetails.style.display = 'block';
+        }
+    </script>
+    {% endblock %}
+</body>
+</html>

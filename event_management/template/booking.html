@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'navbar.html'%}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Event Booking</title>{% endblock %}
+    <style>
+        body {
+            background-image: url('https://images.venuebookingz.com/18387-1552808816-wm-the-lalit-ashok-kalinga-banquet-hall-1.jpeg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .booking-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .booking-form input[type="text"], 
+        .booking-form input[type="email"], 
+        .booking-form input[type="date"], 
+        .booking-form input[type="time"], 
+        .booking-form input[type="tel"], 
+        .booking-form input[type="number"], 
+        .booking-form textarea,
+        .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .booking-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .booking-form button:hover {
+            background: #4cae4c;
+        }
+        .confirmation {
+            display: none;
+            background: #dff0d8;
+            color: #3c763d;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+        }
+        .price {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Booking</h1>
+        <div class="booking-form">
+            <h2>Book This Event</h2>
+            <form id="bookingForm">
+                <label for="event_name">Event Name</label>
+                <input type="text" id="event_name" name="event_name" required>
+                
+                <label for="event_type">Event Type</label>
+                <select id="event_type" name="event_type" required>
+                    <option value="">Select Event Type</option>
+                    <option value="conference">Conference</option>
+                    <option value="seminar">Seminar</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="concert">Concert</option>
+                    <option value="festival">Festival</option>
+                    <option value="party">Party</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="event_description">Event Description</label>
+                <textarea id="event_description" name="event_description" rows="4" required></textarea>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="start_time">Start Time</label>
+                <input type="time" id="start_time" name="start_time" required>
+
+                <label for="end_time">End Time</label>
+                <input type="time" id="end_time" name="end_time" required>
+                
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" value="Central Park, New York City" required>
+
+                <label for="hall_strength">Hall Strength</label>
+                <input type="number" id="hall_strength" name="hall_strength" min="1" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Book</button>
+            </form>
+            <div class="price" id="priceMessage"></div>
+            <div class="confirmation" id="confirmationMessage">
+                Thank you for booking! We have received your information.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('hall_strength').addEventListener('input', function() {
+            const hallStrength = document.getElementById('hall_strength').value;
+            const pricePerPerson = 100; // Example price per person in rupees
+            const totalPrice = hallStrength * pricePerPerson;
+            document.getElementById('priceMessage').textContent = `Total Price: ₹${totalPrice}`;
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Display popup message
+            alert('Slot Booked Successfully');
+
+            // Display confirmation message
+            document.getElementById('confirmationMessage').style.display = 'block';
+
+            // Clear the form fields
+            document.getElementById('bookingForm').reset();
+            document.getElementById('priceMessage').textContent = ''; // Clear the price message
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

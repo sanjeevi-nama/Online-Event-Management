@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'navbar.html'%}
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8cc38c2cff.js" crossorigin="anonymous"></script>   
+
+    {% block title %}<title>Contact Us </title>{% endblock %}
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/top-view-chat-bubbles-with-telephone-receiver-copy-space_23-2148796078.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; 
+        }
+        .container {
+            max-width: 600px;
+            margin: 150px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .social-media {
+            margin-left: 180px;
+            margin-top: 20px;
+        }
+        .social-media a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .social-media img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:Spectra@eventmanagement.com">spectra@eventmanagement.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+91 1234567890">+91 9876543210</a></p>
+            <p><strong>Address:</strong> 123  Street, Rajahmundry, Andhrapradesh,  India</p>
+        </div>
+        <p>Follow us on social media:</p>
+        <div class="social-media">
+            
+            <i class="fa-brands fa-facebook"></i>
+            <a href="#">Facebook</a>&emsp; 
+            <i class="fa-brands fa-twitter"></i>
+            <a href="#">Twitter</a><br><br>
+            <i class="fa-brands fa-instagram"></i>
+            <a href="#">Instagram</a>&emsp; 
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
